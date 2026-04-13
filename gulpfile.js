@@ -29,8 +29,8 @@ const paths = {
 };
 const config = {
 	sass: {
-		input: 'index.sass',
-		dependencies: ['node_modules/bulma/sass/utilities/_all.sass'],
+		input: 'index.scss',
+		dependencies: ['node_modules/bulma/sass/utilities/_index.scss'],
 		output: {
 			filename: pkg.name,
 			format: 'compressed'
@@ -61,7 +61,7 @@ gulp.task('build:styles', function() {
 	if (fs.existsSync(config.sass.source + config.sass.input)) {
 		return gulp
 			.src(config.sass.dependencies.concat([config.sass.source + config.sass.input]))
-			.pipe(concat(config.sass.output.filename + '.sass'))
+			.pipe(concat(config.sass.output.filename + '.scss'))
 			.pipe(sass({
 				style: config.sass.output.format,
 				trace: true,
@@ -81,7 +81,7 @@ gulp.task('build:styles', function() {
 gulp.task('build:styles:copy', function() {
 	if (fs.existsSync(config.sass.source + config.sass.input)) {
 		return gulp.src(config.sass.source + config.sass.input)
-			.pipe(concat(config.sass.output.filename + '.sass'))
+			.pipe(concat(config.sass.output.filename + '.scss'))
 			.pipe(gulp.dest(config.sass.destination));
 	} else {
 		return gulp.src('.').pipe(nop());
@@ -90,7 +90,7 @@ gulp.task('build:styles:copy', function() {
 
 gulp.task('clean:styles', function() {
 	return del([
-		config.sass.destination + config.sass.output.filename + '.sass',
+		config.sass.destination + config.sass.output.filename + '.scss',
 		config.sass.destination + config.sass.output.filename + (config.sass.output.format === 'compressed' ? '.min' : '') + '.css'
 	]);
 });
