@@ -1,5 +1,5 @@
 @use "sass:color"
-@use "bulma/sass/utilities/css-variables" as cv;
+@use "bulma/sass/utilities/css-variables" as cv
 @use "bulma/sass/utilities/initial-variables.scss" as iv
 @use "bulma/sass/utilities/derived-variables.scss" as dv
 @use "bulma/sass/utilities/mixins"
@@ -15,11 +15,11 @@ $pricing-item-border: .1rem solid iv.$white !default
 $pricing-item-color: iv.$grey !default
 $pricing-price-background: white !default
 
-$pricing-plan-h: cv.getVar("scheme-h");
-$pricing-plan-s: cv.getVar("scheme-s");
-$pricing-plan-color-l: cv.getVar("text-l");
-$pricing-plan-button-background-l: cv.getVar("scheme-l");
-$pricing-plan-button-color-l: cv.getVar("text-l");
+$pricing-plan-h: cv.getVar("scheme-h")
+$pricing-plan-s: cv.getVar("scheme-s")
+$pricing-plan-color-l: cv.getVar("text-l")
+$pricing-plan-button-background-l: cv.getVar("scheme-l")
+$pricing-plan-button-color-l: cv.getVar("text-l")
 
 
 .#{iv.$class-prefix}pricing-table
@@ -101,7 +101,7 @@ $pricing-plan-button-color-l: cv.getVar("text-l");
           #{cv.getVar("pricing-plan-h")},
           #{cv.getVar("pricing-plan-s")},
           #{cv.getVar("pricing-plan-color-l")}
-        );
+        )
         font-size: iv.$size-2
         font-weight: iv.$weight-bold
 
@@ -138,7 +138,7 @@ $pricing-plan-button-color-l: cv.getVar("text-l");
           "pricing-plan-button-background-l": #{cv.getVar("primary", "", "-l")},
           "pricing-plan-button-color-l": #{cv.getVar("primary", "", "-invert-l")},
         )
-      );
+      )
       box-shadow: $pricing-plan-active-shadow
       transform: $pricing-plan-active-transform
       .#{iv.$class-prefix}plan-footer
@@ -158,7 +158,7 @@ $pricing-plan-button-color-l: cv.getVar("text-l");
             "pricing-plan-button-background-l": #{cv.getVar($name, "", "-l")},
             "pricing-plan-button-color-l": #{cv.getVar($name, "", "-invert-l")},
           )
-        );
+        )
         .#{iv.$class-prefix}plan-footer
           .#{iv.$class-prefix}button
             +cv.register-vars(("button-border-width": 0px))
