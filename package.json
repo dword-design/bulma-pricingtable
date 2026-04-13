@@ -1,5 +1,5 @@
 {
-  "name": "bulma-pricingtable",
+  "name": "@dword-design/bulma-pricingtable",
   "version": "3.0.0",
   "description": "Display a pricing table easily. ",
   "main": "dist/css/bulma-pricingtable.sass",
