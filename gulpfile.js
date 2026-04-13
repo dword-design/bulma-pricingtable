@@ -14,7 +14,7 @@ const fs				  = require('fs');
 const log                 = require('fancy-log');
 const nop                  = require('gulp-nop');
 const postcss             = require('gulp-postcss');
-const sass                = require('gulp-sass');
+const sass                = require('gulp-sass')(require('sass'));
 const uglify              = require('gulp-uglify');
 
 /**
@@ -25,12 +25,10 @@ const uglify              = require('gulp-uglify');
 const paths = {
 	src:  'src/',
 	dist: 'dist/',
-	bulma: 'node_modules/bulma/sass/utilities/'
 };
 const config = {
 	sass: {
 		input: 'index.scss',
-		dependencies: ['node_modules/bulma/sass/utilities/_index.scss'],
 		output: {
 			filename: pkg.name,
 			format: 'compressed'
@@ -60,13 +58,13 @@ const config = {
 gulp.task('build:styles', function() {
 	if (fs.existsSync(config.sass.source + config.sass.input)) {
 		return gulp
-			.src(config.sass.dependencies.concat([config.sass.source + config.sass.input]))
+			.src(/*config.sass.dependencies.concat(*/[config.sass.source + config.sass.input]/*)*/)
 			.pipe(concat(config.sass.output.filename + '.scss'))
 			.pipe(sass({
 				style: config.sass.output.format,
 				trace: true,
 				loadPath: [config.sass.source],
-				includePaths: ['node_modules/bulma/sass/utilities/']
+				includePaths: ['node_modules']
 			}))
 			.pipe(concat(config.sass.output.filename + (config.sass.output.format === 'compressed' ? '.min' : '') + '.css'))
 			.pipe(postcss([autoprefixer({browsers: pkg.broswers})]))
