@@ -1,6 +1,6 @@
 {
   "name": "@dword-design/bulma-pricingtable",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Display a pricing table easily. ",
   "main": "dist/css/bulma-pricingtable.scss",
   "scripts": {

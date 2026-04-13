@@ -58,7 +58,7 @@ const config = {
 gulp.task('build:styles', function() {
 	if (fs.existsSync(config.sass.source + config.sass.input)) {
 		return gulp
-			.src(/*config.sass.dependencies.concat(*/[config.sass.source + config.sass.input]/*)*/)
+			.src([config.sass.source + config.sass.input])
 			.pipe(concat(config.sass.output.filename + '.scss'))
 			.pipe(sass({
 				style: config.sass.output.format,
